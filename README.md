@@ -28,7 +28,7 @@ $ npm install --save snapdragon-token
 ## Usage
 
 ```js
-var snapdragonToken = require('snapdragon-token');
+var Token = require('snapdragon-token');
 ```
 
 ## API
