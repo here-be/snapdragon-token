@@ -1,6 +1,6 @@
 # snapdragon-token [![NPM version](https://img.shields.io/npm/v/snapdragon-token.svg?style=flat)](https://www.npmjs.com/package/snapdragon-token) [![NPM monthly downloads](https://img.shields.io/npm/dm/snapdragon-token.svg?style=flat)](https://npmjs.org/package/snapdragon-token) [![NPM total downloads](https://img.shields.io/npm/dt/snapdragon-token.svg?style=flat)](https://npmjs.org/package/snapdragon-token) [![Linux Build Status](https://img.shields.io/travis/jonschlinkert/snapdragon-token.svg?style=flat&label=Travis)](https://travis-ci.org/jonschlinkert/snapdragon-token)
 
-> Create a snapdragon token, for lexer plugins.
+> Create a snapdragon token. Used by the snapdragon lexer, but can also be used by plugins.
 
 Please consider following this project's author, [Jon Schlinkert](https://github.com/jonschlinkert), and consider starring the project to show your :heart: and support.
 

@@ -1,6 +1,6 @@
 {
   "name": "snapdragon-token",
-  "description": "Create a snapdragon token, for lexer plugins.",
+  "description": "Create a snapdragon token. Used by the snapdragon lexer, but can also be used by plugins.",
   "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/snapdragon-token",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -36,6 +36,10 @@
     "parse",
     "parser",
     "render",
+    "lexer",
+    "lex",
+    "tokenize",
+    "capture",
     "snapdragon",
     "token",
     "transform"
