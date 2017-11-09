@@ -1,0 +1,63 @@
+{
+  "name": "snapdragon-token",
+  "description": "Create a snapdragon token, for lexer plugins.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/snapdragon-token",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/snapdragon-token",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/snapdragon-token/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "mocha",
+    "cover": "nyc mocha"
+  },
+  "dependencies": {
+    "define-property": "^1.0.0",
+    "kind-of": "^6.0.0"
+  },
+  "devDependencies": {
+    "gulp-format-md": "^1.0.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.3.0"
+  },
+  "keywords": [
+    "compile",
+    "compiler",
+    "convert",
+    "parse",
+    "parser",
+    "render",
+    "snapdragon",
+    "token",
+    "transform"
+  ],
+  "verb": {
+    "toc": "collapsible",
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "snapdragon",
+        "snapdragon-node",
+        "snapdragon-util"
+      ]
+    },
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
