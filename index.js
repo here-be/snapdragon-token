@@ -18,13 +18,21 @@ var typeOf = require('kind-of');
  * @api public
  */
 
-function Token(type, val, lexer, match) {
+function Token(type, val, match, parent) {
   if (typeOf(type) === 'object') {
-    var tok = new this.constructor(type.type, type.val, val, lexer);
+    var tok = new this.constructor(type.type, type.val, val, parent);
     return Object.assign(tok, type);
   }
+
+  if (typeOf(match) === 'object') {
+    let temp = parent;
+    parent = match;
+    match = temp;
+    temp = null;
+  }
+
   define(this, 'isToken', true);
-  define(this, 'parent', lexer);
+  define(this, 'parent', parent);
   define(this, 'match', match);
   define(this, 'cache', {});
   this.type = type;
