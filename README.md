@@ -34,6 +34,10 @@ const token = new Token({type: 'star', val: '*'});
 console.log(token) //=> Token { type: 'star', val: '*' }
 ```
 
+## Release history
+
+See [the changelog](CHANGELOG.md).
+
 ## About
 
 <details>
