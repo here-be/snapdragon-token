@@ -1,7 +1,6 @@
 'use strict';
 
 const typeOf = require('kind-of');
-const define = require('define-property');
 
 /**
  * Create a new `Token` with the given `val` and `type`.
@@ -41,6 +40,14 @@ class Token {
   static isToken(token) {
     return token && token.isToken === true;
   }
+}
+
+function define(obj, key, val) {
+  Reflect.defineProperty(obj, key, {
+    configurable: true,
+    writable: true,
+    value: val
+  });
 }
 
 /**
