@@ -33,37 +33,37 @@ describe('snapdragon-token', function() {
       assert.strictEqual(token.type, 'star');
     });
 
-    it('should create a new Token with the given type and val', function() {
+    it('should create a new Token with the given type and value', function() {
       const token = new Token('star', '*');
       assert.strictEqual(token.type, 'star');
-      assert.strictEqual(token.val, '*');
+      assert.strictEqual(token.value, '*');
     });
 
     it('should create a new Token with the given object', function() {
-      const token = new Token({type: 'star', val: '*'});
-      assert.strictEqual(token.val, '*');
+      const token = new Token({type: 'star', value: '*'});
+      assert.strictEqual(token.value, '*');
       assert.strictEqual(token.type, 'star');
     });
 
-    it('should extend type and val onto a token', function() {
-      const token = new Token({type: 'foo', val: 'bar'});
+    it('should extend type and value onto a token', function() {
+      const token = new Token({type: 'foo', value: 'bar'});
       assert.strictEqual(token.type, 'foo');
-      assert.strictEqual(token.val, 'bar');
+      assert.strictEqual(token.value, 'bar');
     });
 
     it('should add match array when first arg is an object', function() {
       const match = /^\w+/.exec('word');
-      const token = new Token({type: 'foo', val: 'bar'}, match);
+      const token = new Token({type: 'foo', value: 'bar'}, match);
       assert.strictEqual(token.type, 'foo');
-      assert.strictEqual(token.val, 'bar');
+      assert.strictEqual(token.value, 'bar');
       assert.deepEqual(token.match.slice(), ['word']);
     });
 
-    it('should add match array when type and val are strings', function() {
+    it('should add match array when type and value are strings', function() {
       const match = /^\w+/.exec('word');
       const token = new Token('foo', 'bar', match);
       assert.strictEqual(token.type, 'foo');
-      assert.strictEqual(token.val, 'bar');
+      assert.strictEqual(token.value, 'bar');
       assert.deepEqual(token.match.slice(), ['word']);
     });
 
@@ -71,12 +71,12 @@ describe('snapdragon-token', function() {
       const match = /^\w+/.exec('word');
       const token = new Token('foo', match);
       assert.strictEqual(token.type, 'foo');
-      assert.strictEqual(token.val, 'word');
+      assert.strictEqual(token.value, 'word');
       assert.deepEqual(token.match.slice(), ['word']);
     });
 
     it('should extend arbitrary properties onto a token', function() {
-      const token = new Token({type: 'foo', val: 'bar', baz: 'qux'});
+      const token = new Token({type: 'foo', value: 'bar', baz: 'qux'});
       assert.strictEqual(token.baz, 'qux');
     });
   });

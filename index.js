@@ -2,56 +2,55 @@
 
 const typeOf = require('kind-of');
 
-/**
- * Create a new `Token` with the given `val` and `type`.
- *
- * ```js
- * const token = new Token('*', 'Star');
- * const token = new Token({type: 'star', val: '*'});
- * console.log(token) //=> Token { type: 'star', val: '*' }
- * ```
- * @param {String|Object} `type` The token type to use when `val` is a string.
- * @param {String} `val` Value to set
- * @return {Object} Token instance
- * @api public
- */
+function create(options) {
+  const opts = Object.assign({value: 'value'}, options);
 
-class Token {
-  constructor(type, val, match) {
-    define(this, 'isToken', true);
+  /**
+   * Create a new `Token` with the given `value` and `type`.
+   *
+   * ```js
+   * const token = new Token('*', 'Star');
+   * const token = new Token({type: 'star', value: '*'});
+   * console.log(token) //=> Token { type: 'star', value: '*' }
+   * ```
+   * @param {String|Object} `type` The token type to use when `value` is a string.
+   * @param {String} `value` Value to set
+   * @return {Object} Token instance
+   * @api public
+   */
 
-    if (Array.isArray(val)) {
-      match = val;
-      val = type.val || match[0];
+  class Token {
+    constructor(type, value, match) {
+      Reflect.defineProperty(this, 'isToken', {writable: true, value: true});
+
+      if (Array.isArray(value)) {
+        match = value;
+        value = type[opts.value] || match[0];
+      }
+
+      if (typeOf(type) === 'object') {
+        for (let key in type) this[key] = type[key];
+      } else {
+        this.type = type;
+        this[opts.value] = value;
+      }
+
+      if (match) {
+        this.match = match;
+      }
     }
 
-    if (typeOf(type) === 'object') {
-      for (let key in type) this[key] = type[key];
-    } else {
-      this.type = type;
-      this.val = val;
-    }
-
-    if (match) {
-      this.match = match;
+    static isToken(token) {
+      return token && token.isToken === true;
     }
   }
 
-  static isToken(token) {
-    return token && token.isToken === true;
-  }
-}
+  /**
+   * Expose `Token` class
+   */
 
-function define(obj, key, val) {
-  Reflect.defineProperty(obj, key, {
-    configurable: true,
-    writable: true,
-    value: val
-  });
-}
+  return Token;
+};
 
-/**
- * Expose `Token` class
- */
-
-module.exports = Token;
+module.exports = create();
+module.exports.create = create;

@@ -32,6 +32,13 @@ Changelog entries are classified using the following labels _(from [keep-a-chang
 
 </details>
 
+## [3.0.0] - 2017-12-13
+
+**Changed**
+
+- renamed `token.val` to `token.value`
+- expose `.create` method to allow customization of `token.value` property name
+
 ## [2.0.0] - 2017-11-10
 
 - refactored to be simplified
