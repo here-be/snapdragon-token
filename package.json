@@ -1,7 +1,7 @@
 {
   "name": "snapdragon-token",
   "description": "Create a snapdragon token. Used by the snapdragon lexer, but can also be used by plugins.",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "homepage": "https://github.com/here-be-snapdragons/snapdragon-token",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "here-be-snapdragons/snapdragon-token",
