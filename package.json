@@ -20,13 +20,10 @@
     "test": "mocha",
     "cover": "nyc mocha"
   },
-  "dependencies": {
-    "kind-of": "^6.0.1"
-  },
   "devDependencies": {
-    "mocha": "^3.4.2",
     "gulp-format-md": "^1.0.0",
-    "nyc": "^11.3.0"
+    "mocha": "^3.4.2",
+    "nyc": "^11.7.1"
   },
   "keywords": [
     "ast",
@@ -57,11 +54,16 @@
       "list": [
         "snapdragon",
         "snapdragon-node",
+        "snapdragon-tokenizer",
         "snapdragon-util"
       ]
     },
     "lint": {
       "reflinks": true
-    }
+    },
+    "reflinks": [
+      "snapdragon-location",
+      "snapdragon-position"
+    ]
   }
 }
