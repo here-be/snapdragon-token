@@ -1,4 +1,4 @@
-# snapdragon-token [![NPM version](https://img.shields.io/npm/v/snapdragon-token.svg?style=flat)](https://www.npmjs.com/package/snapdragon-token) [![NPM monthly downloads](https://img.shields.io/npm/dm/snapdragon-token.svg?style=flat)](https://npmjs.org/package/snapdragon-token) [![NPM total downloads](https://img.shields.io/npm/dt/snapdragon-token.svg?style=flat)](https://npmjs.org/package/snapdragon-token) [![Linux Build Status](https://img.shields.io/travis/here-be-snapdragons/snapdragon-token.svg?style=flat&label=Travis)](https://travis-ci.org/here-be-snapdragons/snapdragon-token)
+# snapdragon-token [![NPM version](https://img.shields.io/npm/v/snapdragon-token.svg?style=flat)](https://www.npmjs.com/package/snapdragon-token) [![NPM monthly downloads](https://img.shields.io/npm/dm/snapdragon-token.svg?style=flat)](https://npmjs.org/package/snapdragon-token) [![NPM total downloads](https://img.shields.io/npm/dt/snapdragon-token.svg?style=flat)](https://npmjs.org/package/snapdragon-token) [![Linux Build Status](https://img.shields.io/travis/here-be/snapdragon-token.svg?style=flat&label=Travis)](https://travis-ci.org/here-be/snapdragon-token)
 
 > Create a snapdragon token. Used by the snapdragon lexer, but can also be used by plugins.
 
@@ -20,6 +20,10 @@ const Token = require('snapdragon-token');
 
 ## API
 
+### [Token](index.js#L18)
+
+Create a new `Token` with the given `value` and `type`.
+
 **Params**
 
 * `type` **{String|Object}**: The token type to use when `value` is a string.
@@ -37,6 +41,31 @@ console.log(token) //=> Token { type: 'star', value: '*' }
 ## Release history
 
 See [the changelog](CHANGELOG.md).
+
+## Token objects
+
+Lexer tokens are represented as `Token` objects that implement the following interface:
+
+```js
+interface Token {
+  type: string;
+  value: string;
+  match: array | undefined;
+}
+```
+
+### Token properties
+
+* `type` **{string}** - A string representing the token variant type. This property is necessary for classifying one or more characters so that parsers or compilers can determine what to do with the token.
+* `value` **{string}** - The substring (or [lexeme](#lexeme)) that was captured for the token.
+* `match` **{array|undefined}** - If a regular expression was used to capture a substring, the `RegExp.exec()` or `String.match()` arguments array can be stored on the token.
+
+**Source location**
+
+Add the source location (start, end, index and range) information to tokens using either of the following plugins (depending on preference for property naming conventions):
+
+* [snapdragon-position](https://github.com/here-be/snapdragon-position)
+* [snapdragon-location](https://github.com/here-be/snapdragon-location)
 
 ## About
 
@@ -59,6 +88,7 @@ $ npm install && npm test
 ```
 
 </details>
+
 <details>
 <summary><strong>Building docs</strong></summary>
 
@@ -77,22 +107,22 @@ $ npm install -g verbose/verb#dev verb-generate-readme && verb
 You might also be interested in these projects:
 
 * [snapdragon-node](https://www.npmjs.com/package/snapdragon-node): Snapdragon utility for creating a new AST node in custom code, such as plugins. | [homepage](https://github.com/jonschlinkert/snapdragon-node "Snapdragon utility for creating a new AST node in custom code, such as plugins.")
-* [snapdragon-util](https://www.npmjs.com/package/snapdragon-util): Utilities for the snapdragon parser/compiler. | [homepage](https://github.com/jonschlinkert/snapdragon-util "Utilities for the snapdragon parser/compiler.")
-* [snapdragon](https://www.npmjs.com/package/snapdragon): Easy-to-use plugin system for creating powerful, fast and versatile parsers and compilers, with built-in source-map… [more](https://github.com/jonschlinkert/snapdragon) | [homepage](https://github.com/jonschlinkert/snapdragon "Easy-to-use plugin system for creating powerful, fast and versatile parsers and compilers, with built-in source-map support.")
+* [snapdragon-util](https://www.npmjs.com/package/snapdragon-util): Utilities for the snapdragon parser/compiler. | [homepage](https://github.com/here-be/snapdragon-util "Utilities for the snapdragon parser/compiler.")
+* [snapdragon](https://www.npmjs.com/package/snapdragon): Easy-to-use plugin system for creating powerful, fast and versatile parsers and compilers, with built-in source-map… [more](https://github.com/here-be/snapdragon) | [homepage](https://github.com/here-be/snapdragon "Easy-to-use plugin system for creating powerful, fast and versatile parsers and compilers, with built-in source-map support.")
 
 ### Author
 
 **Jon Schlinkert**
 
-* [linkedin/in/jonschlinkert](https://linkedin.com/in/jonschlinkert)
-* [github/jonschlinkert](https://github.com/jonschlinkert)
-* [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
+* [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)
+* [GitHub Profile](https://github.com/jonschlinkert)
+* [Twitter Profile](https://twitter.com/jonschlinkert)
 
 ### License
 
-Copyright © 2017, [Jon Schlinkert](https://github.com/jonschlinkert).
+Copyright © 2018, [Jon Schlinkert](https://github.com/jonschlinkert).
 Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on December 13, 2017._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on April 26, 2018._
